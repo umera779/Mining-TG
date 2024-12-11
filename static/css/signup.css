@@ -10,7 +10,9 @@ body {
     align-items: center;
     height: 100vh;
 }
-
+a {
+    text-decoration: none;
+}
 /* Signup container styling */
 .signup-container {
     background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent black */

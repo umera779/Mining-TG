@@ -77,6 +77,10 @@ WSGI_APPLICATION = 'Mining.wsgi.application'
 DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+AUTHENTICATION_BACKENDS = [
+    'Mining.auth_backends.CustomSessionBackend',  # Path to your backend
+    'django.contrib.auth.backends.ModelBackend',  # Default backend (fallback)
+]
 
 
 # Password validation
@@ -124,6 +128,16 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Extend session duration to 1 year (in seconds)
+# SESSION_COOKIE_AGE = 60 * 60 * 24 * 365  # 1 year in seconds
+
+# # Ensure the session persists even after the user closes their browser
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# # Use a secure cookie if your application uses HTTPS
+# SESSION_COOKIE_SECURE = True  # Recommended for HTTPS; set to False for development
+# SESSION_COOKIE_HTTPONLY = True  # Helps prevent JavaScript from accessing the session cookie
+# SESSION_COOKIE_SAMESITE = 'Lax'  # Adjust based on your use case
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

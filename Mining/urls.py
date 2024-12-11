@@ -29,6 +29,8 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('login/', views.login_view, name='login'),
     path('wallet',views.wallet, name='wallet'),
+    path('get-button-state/', views.get_button_state, name='get_button_state'),
+    path('update-button-state/', views.update_button_state, name='update_button_state'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

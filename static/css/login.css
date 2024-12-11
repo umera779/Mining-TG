@@ -10,7 +10,9 @@ body {
     align-items: center;
     height: 100vh;
 }
-
+a {
+    text-decoration: none;
+}
 /* Login container styling */
 .login-container {
     background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent black */

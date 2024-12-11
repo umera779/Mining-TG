@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
-from .models import Counter, TaskList, Boost, Mining, Level, CustomUser
+from .models import Counter, TaskList, Boost, Mining, Level, CustomUser, ButtonState
 from django.http import JsonResponse
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.contrib.auth import login, get_backends
+from django.utils.timezone import now
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.sessions.models import Session
 
 @login_required
 def home(request):
@@ -46,34 +50,50 @@ def home(request):
             'balance': players[2].value
         })
 
-    # return render(request, 'pain.html', {
-    #     'counter': counter,
-    #     'mining_speed': mining_speed,
-    #     'level': level,
-    #     'leaderboard': leaderboard
-    # })
-
-# This assumes that each user has a unique Counter object
     return render(request, 'pain.html', {'counter': counter,'mining_speed': mining_speed, 'level':level, 'leaderboard': leaderboard})
+
+
+
+def get_button_state(request):
+    if request.user.is_authenticated:
+        button_state, created = ButtonState.objects.get_or_create(user=request.user)
+        remaining_time = button_state.get_remaining_time()
+        return JsonResponse({
+            'state': button_state.state,
+            'remaining_time': remaining_time
+        })
+    return JsonResponse({'state': 'unclicked', 'remaining_time': 0})
+
+def update_button_state(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        button_state, created = ButtonState.objects.get_or_create(user=request.user)
+        button_state.state = 'clicked'
+        button_state.last_clicked = now()
+        button_state.save()
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'}, status=400)
 
 @login_required
 def increment_counter(request):
-    # Get the mining speed associated with the current user
-    mining_speed = request.user.mining  # This assumes that each user has a unique Mining object
-    mining_goat = mining_speed.speed
-
-    if request.method == 'POST':
-        # Get the counter object associated with the current user
+    if request.method == 'POST' and request.user.is_authenticated:
+        # Increment the counter
+        mining_speed = request.user.mining  # This assumes that each user has a unique Mining object
+        mining_goat = mining_speed.speed
         counter = request.user.counter
         counter.value += int(mining_goat)
         counter.save()
+
+        # Update the button state
+        button_state, _ = ButtonState.objects.get_or_create(user=request.user)
+        button_state.state = "clicked"
+        button_state.last_clicked = now()
+        button_state.save()
+
         formatted_counter_value = f"{counter.value:,}"
+        return JsonResponse({'counter_value': formatted_counter_value, 'button_state': button_state.state})
 
-        # Return the updated counter value as a JSON response
-        # return JsonResponse({'counter_value': counter.value})
-        return JsonResponse({'counter_value': formatted_counter_value})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
-    return render(request, 'pain.html', {'counter': request.user.counter})
 
 @login_required
 def boost(request):
@@ -141,9 +161,6 @@ def taskList(request):
 
 
 
-from django.contrib.auth import login
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.sessions.models import Session
 
 
 
@@ -161,33 +178,7 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
-from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
-from .models import Counter, Mining, Boost, TaskList, Level
-
-# Sign-up View
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             # Create the user
-#             user = form.save()
-
-#             # Create related models for the new user
-#             Counter.objects.create(user=user, value=0)  # Create Counter for the new user
-#             Mining.objects.create(user=user, speed=3000)  # Create Mining with default speed
-#             Boost.objects.create(user=user, boost_name='Default', boost_value=0, needed_coin=0, level='level_1')  # Default boost
-#             TaskList.objects.create(user=user)  # You might need to add specific fields for TaskList
-#             Level.objects.create(user=user, level=1)  # Default level 1 for the new user
-
-#             # Log the user in after successful registration
-#             login(request, user)
-#             return redirect('home')  # Redirect to the home page or dashboard after signup
-
-#     else:
-#         form = CustomUserCreationForm()
-
-#     return render(request, 'signup.html', {'form': form})
 
 def wallet(request):
     return render(request, 'wallet.html')
@@ -218,6 +209,8 @@ def signup(request):
             task.assigned_users.add(user)
 
             Level.objects.create(user=user, level=1)  # Default level 1 for the new user
+            backend = get_backends()[0]  # Select the first backend (modify if needed)
+            user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
 
             # Log the user in after successful registration
             login(request, user)

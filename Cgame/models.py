@@ -1,5 +1,7 @@
 
 from django.db import models
+from django.conf import settings
+from django.utils.timezone import now
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 # Counter model that links to the User
@@ -48,6 +50,25 @@ class TaskList(models.Model):
 
     def __str__(self):
         return f"Task: {self.Taskname} - Value: {self.Taskvalue}"
+# models.py
+
+
+class ButtonState(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="button_state")
+    state = models.CharField(max_length=10, choices=[('clicked', 'Clicked'), ('unclicked', 'Unclicked')], default='unclicked')
+    last_clicked = models.DateTimeField(null=True, blank=True)  # When the button was last clicked
+
+    def get_remaining_time(self):
+        """
+        Calculate the remaining time in milliseconds.
+        """
+        if self.last_clicked:
+            elapsed_time = now() - self.last_clicked
+            disable_duration = 4 * 60 * 60  # 4 hours in seconds
+            remaining_time = disable_duration - elapsed_time.total_seconds()
+            return max(0, remaining_time * 1000)  # Return in milliseconds
+        return 0
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None):

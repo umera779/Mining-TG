@@ -1,11 +1,12 @@
 from django.contrib import admin
-from . models import Counter, Mining, TaskList, Boost, Level, CustomUser
+from . models import Counter, Mining, TaskList, Boost, Level, CustomUser, ButtonState
 admin.site.register(Counter)
 admin.site.register(Mining)
 admin.site.register(CustomUser)
 admin.site.register( Level)
-# Register your models here.
+admin.site.register(ButtonState)
 
+# Register your models here.
 class TaskListAdmin(admin.ModelAdmin):
     list_display = ('Taskname', 'Taskvalue', 'display_assigned_users')
     search_fields = ('Taskname',)
