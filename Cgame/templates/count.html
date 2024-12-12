@@ -3,84 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Dynamic Pop-up</title>
+    <title>Persistent Pop-up</title>
     <style>
-        /* General body styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        /* Pop-up styling */
+        #popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1000;
         }
 
-       
+        #popup.active {
+            display: block; /* Show the pop-up when active */
+        }
+
+        #popup .close-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #overlay.active {
+            display: block; /* Show overlay when active */
+        }
     </style>
 </head>
 <body>
-    <div class="links">
-        <a href="boost" class="ajax-link">Load Page 1</a>
-        <a href="task" class="ajax-link">Load Page 2</a>
-        <a href="/page3.html" class="ajax-link">Load Page 3</a>
-    </div>
-
     <div id="overlay"></div>
     <div id="popup">
         <button class="close-btn" id="close-btn">&times;</button>
-        <div id="popup-content">Loading...</div> <!-- Content will be loaded here -->
+        <h2>Welcome!</h2>
+        <p>This is a persistent pop-up. Click the "X" to close it.</p>
     </div>
 
     <script>
-        // References
+        // Get references to the elements
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('overlay');
         const closeBtn = document.getElementById('close-btn');
-        const popupContent = document.getElementById('popup-content');
-        const links = document.querySelectorAll('.ajax-link');
 
-        // Function to show the pop-up
-        function showPopup() {
+        // Check if the pop-up was previously closed
+        if (!localStorage.getItem('popupClosed')) {
             popup.classList.add('active');
             overlay.classList.add('active');
         }
 
-        // Function to close the pop-up
-        function closePopup() {
+        // Close the pop-up and save the state in localStorage
+        closeBtn.addEventListener('click', () => {
             popup.classList.remove('active');
             overlay.classList.remove('active');
-            popupContent.innerHTML = ''; // Clear content when closing
-        }
-
-        // Attach event listener to all links
-        links.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default link behavior
-
-                const url = this.getAttribute('href'); // Get the URL from href
-
-                // Fetch the content of the page
-                fetch(url)
-                    .then(response => {
-                        if (response.ok) {
-                            return response.text(); // Get response as text
-                        }
-                        throw new Error('Failed to fetch content');
-                    })
-                    .then(content => {
-                        popupContent.innerHTML = content; // Load content into pop-up
-                        showPopup(); // Show the pop-up
-                    })
-                    .catch(error => {
-                        popupContent.innerHTML = `<p>Error loading content: ${error.message}</p>`;
-                        showPopup(); // Show pop-up with error message
-                    });
-            });
+            localStorage.setItem('popupClosed', 'true'); // Save the state
         });
-
-        // Close the pop-up when the close button is clicked
-        closeBtn.addEventListener('click', closePopup);
-{% comment %} 
-        // Close the pop-up when the overlay is clicked
-        overlay.addEventListener('click', closePopup); {% endcomment %}
     </script>
 </body>
 </html>

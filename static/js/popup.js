@@ -4,6 +4,7 @@ const popup = document.getElementById('popup');
         const popupContent = document.getElementById('popup-content');
         const links = document.querySelectorAll('.ajax-link');
 
+        
         // Function to show the pop-up
         function showPopup() {
             popup.classList.add('active');
