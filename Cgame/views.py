@@ -9,6 +9,8 @@ from django.contrib.auth import login, get_backends
 from django.utils.timezone import now
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sessions.models import Session
+from .forms import CustomUserCreationForm
+
 
 @login_required
 def home(request):
@@ -53,7 +55,7 @@ def home(request):
     return render(request, 'pain.html', {'counter': counter,'mining_speed': mining_speed, 'level':level, 'leaderboard': leaderboard})
 
 
-
+@login_required
 def get_button_state(request):
     if request.user.is_authenticated:
         button_state, created = ButtonState.objects.get_or_create(user=request.user)
@@ -64,6 +66,7 @@ def get_button_state(request):
         })
     return JsonResponse({'state': 'unclicked', 'remaining_time': 0})
 
+@login_required
 def update_button_state(request):
     if request.method == 'POST' and request.user.is_authenticated:
         button_state, created = ButtonState.objects.get_or_create(user=request.user)
@@ -77,7 +80,7 @@ def update_button_state(request):
 def increment_counter(request):
     if request.method == 'POST' and request.user.is_authenticated:
         # Increment the counter
-        mining_speed = request.user.mining  # This assumes that each user has a unique Mining object
+        mining_speed = request.user.mining  
         mining_goat = mining_speed.speed
         counter = request.user.counter
         counter.value += int(mining_goat)
@@ -122,14 +125,10 @@ def boost(request):
                 messages.success(request, response_message)
         
                 return redirect('/boost')
-
     context = {
         'boosting_rate': boosting_rate,
     }
     return render(request, 'boost.html', context)
-
-
-
 
 
 @login_required
@@ -152,17 +151,10 @@ def taskList(request):
             return redirect(redirect_url)
             messages.success(request, f"Task '{task.Taskname}' completed successfully!")
 
-
         return redirect('/task')
 
     context = {"tasklist": user_tasks}
     return render(request, 'task.html', context)
-
-
-
-
-
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -178,8 +170,7 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
-from .forms import CustomUserCreationForm
-
+@login_required
 def wallet(request):
     return render(request, 'wallet.html')
 
@@ -197,7 +188,6 @@ def signup(request):
                 boost_value=1000,
                 needed_coin=20,
                 level='Initial'
-            )
             boost.assigned_users.add(user)
 
             Level.objects.create(user=user, level=1)
