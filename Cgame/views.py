@@ -187,7 +187,7 @@ def signup(request):
                 boost_name='One time boost',
                 boost_value=1000,
                 needed_coin=20,
-                level='Initial'
+                level='Initial')
             boost.assigned_users.add(user)
 
             Level.objects.create(user=user, level=1)
