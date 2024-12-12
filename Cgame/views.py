@@ -183,38 +183,29 @@ from .forms import CustomUserCreationForm
 def wallet(request):
     return render(request, 'wallet.html')
 
-## invite logic 
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            # Create the user
             user = form.save()
 
-            # Create related models for the new user
-            Counter.objects.create(user=user, value=0)  # Create Counter for the new user
-            Mining.objects.create(user=user, speed=3000)  # Create Mining with default speed
-            
-            # Create a Boost and associate it with the user
+            Counter.objects.create(user=user, value=2000)
+            Mining.objects.create(user=user, speed=3000)
+
             boost = Boost.objects.create(
-                boost_name='Default',
-                boost_value=0,
-                needed_coin=0,
-                level='level_1'
+                boost_name='One time boost',
+                boost_value=1000,
+                needed_coin=20,
+                level='Initial'
             )
             boost.assigned_users.add(user)
-            
-            # Create a TaskList and associate it with the user
-            task = TaskList.objects.create(Taskname="Default Task", Taskvalue=0)
-            task.assigned_users.add(user)
 
-            Level.objects.create(user=user, level=1)  # Default level 1 for the new user
+            Level.objects.create(user=user, level=1)
             backend = get_backends()[0]  # Select the first backend (modify if needed)
             user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
 
-            # Log the user in after successful registration
             login(request, user)
-            return redirect('home')  # Redirect to the home page or dashboard after signup
+            return redirect('home')
 
     else:
         form = CustomUserCreationForm()
