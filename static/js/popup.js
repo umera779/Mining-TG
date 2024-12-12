@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Dynamic Pop-up</title>
-    <style>
-        /* General body styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-       
-    </style>
-</head>
-<body>
-    <div class="links">
-        <a href="boost" class="ajax-link">Load Page 1</a>
-        <a href="task" class="ajax-link">Load Page 2</a>
-        <a href="/page3.html" class="ajax-link">Load Page 3</a>
-    </div>
-
-    <div id="overlay"></div>
-    <div id="popup">
-        <button class="close-btn" id="close-btn">&times;</button>
-        <div id="popup-content">Loading...</div> <!-- Content will be loaded here -->
-    </div>
-
-    <script>
-        // References
-        const popup = document.getElementById('popup');
+const popup = document.getElementById('popup');
         const overlay = document.getElementById('overlay');
         const closeBtn = document.getElementById('close-btn');
         const popupContent = document.getElementById('popup-content');
@@ -78,9 +45,3 @@
 
         // Close the pop-up when the close button is clicked
         closeBtn.addEventListener('click', closePopup);
-{% comment %} 
-        // Close the pop-up when the overlay is clicked
-        overlay.addEventListener('click', closePopup); {% endcomment %}
-    </script>
-</body>
-</html>
