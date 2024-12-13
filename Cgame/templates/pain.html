@@ -25,7 +25,8 @@
         </div>
             <div class="counter-container">
               <img src="{% static 'images/header.png'%}" width="100" height="100" alt="Key Image">
-              <span id="counter-value" class="balance">{{ counter.value | intcomma}}</span>
+              <span id="counter-value" class="balance">{{ counter.value | intcomma}}  </span>
+              <button id="refresh-balance" class="refresh"><i class='bx bx-refresh'></i></button>
             </div>
 <hr class="hr-line">
     <p class="leaderboard-text">-Leaderboard-</p>        
@@ -101,5 +102,35 @@
         <script src="{% static 'js/popup.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>  
 </body>
+<script>
+    document.getElementById('refresh-balance').addEventListener('click', function() {
+        // Fetch the updated balance via AJAX
+        fetch('/api/balance/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.balance !== undefined) {
+                    // Update the balance in the DOM
+                    document.getElementById('counter-value').textContent = data.balance;
+                } else {
+                    console.error('Balance not found in response.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching balance:', error);
+            });
+    });
+// The options to use auto refresh after 10 seconds i opted for now due to server load
+// setInterval(function() {
+//     fetch('/api/balance/')
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.balance !== undefined) {
+//                 document.getElementById('counter-value').textContent = data.balance;
+//             }
+//         })
+//         .catch(error => console.error('Error fetching balance:', error));
+// }, 10000);
+
+</script>
 
 </html>

@@ -158,30 +158,61 @@ margin-right:-20px;
    
 }
 
+
+.refresh {
+    display: flex;
+    align-items: center; /* Center icon inside the button */
+    justify-content: center;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 40px;
+    height: 40px; /* Ensure button is a perfect circle */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.refresh i {
+    line-height: 0; /* Ensure the icon is properly centered */
+}
+
+@media (max-width: 768px) {
+    .counter-container {
+        gap: 5px; /* Reduce spacing on smaller screens */
+    }
+
+    .refresh {
+        width: 35px;
+        height: 35px; /* Adjust button size for smaller screens */
+        font-size: 1rem;
+    }
+}
+
 .counter-container {
 height:5%;
-display: flex;                /* Use flexbox to align items horizontally */
-align-items: center;          /* Vertically center the items */
-justify-content: center;      /* Horizontally center the items */
+display: flex;                
+align-items: center;         
+justify-content: center;      
 margin-top:36px;
 }
 
 .counter-container img {
-width: 100px;                 /* Set width of the image */
-height: 100px;                /* Set height of the image */
-margin-right: -16px;           /* Space between the image and the text */
+width: 100px;                
+height: 100px;               
+margin-right: -16px;         
 
 }
 
 .counter-container span {
 margin-top:10px;
-font-size: 25px;              /* Adjust text size */
+font-size: 25px;             
 line-height: 100px; 
-color:white;          /* Vertically align text with the image */
-/* text-shadow: 2px 2px 4px rgba(247, 238, 238, 0.932); Optional shadow */
-text-shadow: 2px 2px 4px rgba(230, 5, 5, 0.932); /* Optional shadow */
+color:white;        
 
-
+text-shadow: 2px 2px 4px rgba(230, 5, 5, 0.932); 
 }
 
 .top-row {
@@ -312,4 +343,9 @@ height: 3px;
 background: linear-gradient(to right, #ff7e5f, #feb47b);
 width: 70%;
 margin: 20px auto;
+}
+
+.refresh {
+    border-style: none;
+    background-color: transparent;
 }
