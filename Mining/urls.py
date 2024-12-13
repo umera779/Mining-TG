@@ -17,6 +17,7 @@ urlpatterns = [
     path('wallet',views.wallet, name='wallet'),
     path('get-button-state/', views.get_button_state, name='get_button_state'),
     path('update-button-state/', views.update_button_state, name='update_button_state'),
+    path('api/balance/', views.get_balance, name='get_balance'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

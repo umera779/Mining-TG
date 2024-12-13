@@ -54,6 +54,13 @@ def home(request):
 
     return render(request, 'pain.html', {'counter': counter,'mining_speed': mining_speed, 'level':level, 'leaderboard': leaderboard})
 
+@login_required
+def get_balance(request):
+    """
+    Return the current balance of the logged-in user.
+    """
+    formatted_counter_value = f"{request.user.counter.value:,}"
+    return JsonResponse({'balance': formatted_counter_value})
 
 @login_required
 def get_button_state(request):

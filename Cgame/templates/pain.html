@@ -18,10 +18,10 @@
     <div class="app-container" id="app">
         <!-- Header -->
         <div class="top-row">
-            <span class="username" style="font-family: arial;">{{request.user}}</span> <!-- Username text -->
-            <button class="top-button-2">{{level}}</button> <!-- Button on the right -->
+            <span class="username" style="font-family: arial;">{{request.user}}</span> 
+            <button class="top-button-2">{{level}}</button> 
 
-            <button class="top-button">{{request.user.mining.speed | intcomma}} words/hr</i></button> <!-- Button on the right -->
+            <button class="top-button">{{request.user.mining.speed | intcomma}} words/hr</i></button> 
         </div>
             <div class="counter-container">
               <img src="{% static 'images/header.png'%}" width="100" height="100" alt="Key Image">
@@ -100,37 +100,8 @@
     </div>
         <script src="{% static 'js/pain.js' %}"></script>
         <script src="{% static 'js/popup.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>  
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>  
+        <script src="{% static 'js/counter_refresh.js' %}"></script>
 </body>
-<script>
-    document.getElementById('refresh-balance').addEventListener('click', function() {
-        // Fetch the updated balance via AJAX
-        fetch('/api/balance/')
-            .then(response => response.json())
-            .then(data => {
-                if (data.balance !== undefined) {
-                    // Update the balance in the DOM
-                    document.getElementById('counter-value').textContent = data.balance;
-                } else {
-                    console.error('Balance not found in response.');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching balance:', error);
-            });
-    });
-// The options to use auto refresh after 10 seconds i opted for now due to server load
-// setInterval(function() {
-//     fetch('/api/balance/')
-//         .then(response => response.json())
-//         .then(data => {
-//             if (data.balance !== undefined) {
-//                 document.getElementById('counter-value').textContent = data.balance;
-//             }
-//         })
-//         .catch(error => console.error('Error fetching balance:', error));
-// }, 10000);
-
-</script>
 
 </html>
