@@ -114,6 +114,7 @@ def boost(request):
             if counter.value <= int(needed):
                 response_message = "Insufficient Balance"
                 messages.info(request, response_message)
+                return redirect('/boost')
             else:
                 counter.value -= int(needed)
                 counter.save()
@@ -148,9 +149,8 @@ def taskList(request):
 
             task = TaskList.objects.get(id=task_id)
             task.assigned_users.remove(request.user)
-            return redirect(redirect_url)
+            return redirect(redirect_url, permanent=True)
             messages.success(request, f"Task '{task.Taskname}' completed successfully!")
-
         return redirect('/task')
 
     context = {"tasklist": user_tasks}

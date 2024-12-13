@@ -15,7 +15,7 @@ $(document).ready(function () {
             if (timeLeft <= 0) {
                 clearInterval(interval); // Clear the interval
                 button.prop('disabled', false); // Enable the button
-                button.text('Click Me'); // Reset button text
+                button.text('Start Mining Keys!'); // Reset button text
             } else {
                 // Calculate hours, minutes, and seconds
                 const hours = Math.floor(timeLeft / (1000 * 60 * 60));
