@@ -19,7 +19,7 @@ urlpatterns = [
     path('update-button-state/', views.update_button_state, name='update_button_state'),
     path('api/balance/', views.get_balance, name='get_balance'),
 ]
-if settings.DEBUG:
+if settings.DEBUG is False:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
