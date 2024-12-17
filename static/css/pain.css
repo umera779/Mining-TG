@@ -179,18 +179,6 @@ margin-right:-20px;
     line-height: 0; /* Ensure the icon is properly centered */
 }
 
-@media (max-width: 768px) {
-    .counter-container {
-        gap: 5px; /* Reduce spacing on smaller screens */
-    }
-
-    .refresh {
-        width: 35px;
-        height: 35px; /* Adjust button size for smaller screens */
-        font-size: 1rem;
-    }
-}
-
 .counter-container {
 height:5%;
 display: flex;                
@@ -227,28 +215,38 @@ margin-top:10px;
 
 /* Avatar Lists */
 .avatar-lists {
-    flex: 1;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
+    margin: 10px; /* Add margin for spacing */
 }
 
 .avatar-list {
-    position: absolute;
-    top: 80%;
-    transform: translateY(-150%);
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 20px;
+}
+
+.avatar-list button {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
 }
 
 .avatar-list-left {
-    left: 10px;
+    margin-left: 10px;
 }
 
 .avatar-list-right {
-    right: 10px;
+    margin-right: 10px;
 }
+
 
 .avatar-list img {
     width: 50px;
@@ -348,4 +346,29 @@ margin: 20px auto;
 .refresh {
     border-style: none;
     background-color: transparent;
+}
+@media (max-width: 768px) {
+    .avatar-lists {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+
+    .avatar-list {
+        flex-direction: row; /* Align buttons horizontally */
+        gap: 15px; /* Add spacing between buttons */
+    }
+
+    .avatar-list button span {
+        font-size: 12px;
+    }
+    .counter-container {
+        gap: 5px; /* Reduce spacing on smaller screens */
+    }
+
+    .refresh {
+        width: 35px;
+        height: 35px; /* Adjust button size for smaller screens */
+        font-size: 1rem;
+    }
 }

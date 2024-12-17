@@ -65,32 +65,31 @@
     </div>
 
         <div class="avatar-lists">
-            <!-- Left Avatar List -->
-            <div class="avatar-list avatar-list-left">
-               
-                <button>
-                    <a href="#"><i class="bx bx-user-plus"></i></a>
-                    <span>Invite</span>
-                </button>
+    <!-- Left Avatar List -->
+    <div class="avatar-list avatar-list-left">
+        <button>
+            <a href="#"><i class="bx bx-user-plus"></i></a>
+            <span>Invite</span>
+        </button>
+        <button>
+            <a href="wallet" class='ajax-link'><i class="bx bx-wallet"></i></a>
+            <span>Wallet</span>
+        </button>
+    </div>
 
-                <button>
-                    <a href="wallet" class='ajax-link'><i class="bx bx-wallet"></i></a>
-                    <span>Wallet</span>
-                </button>
-            </div>
+    <!-- Right Avatar List -->
+    <div class="avatar-list avatar-list-right">
+        <button>
+            <a href="boost/"><i class="bx bx-rocket"></i></a>
+            <span>Boost</span>
+        </button>
+        <button>
+            <a href="task"><i class="bx bx-task"></i></a>
+            <span>Task</span>
+        </button>
+    </div>
+</div>
 
-            <div class="avatar-list avatar-list-right">
-                <button>
-                    <a href="boost/"><i class="bx bx-rocket"></i></a>
-                    <span>Boost</span>
-                </button>
-
-                <button>
-                    <a href="task"><i class="bx bx-task"></i></a>
-                    <span>Task</span>
-                </button>
-            </div>
-        </div>
          <div class="typing-box">
             <form id="counter-form" method="post" action="{% url 'increment_counter' %}">
                 {% csrf_token %}

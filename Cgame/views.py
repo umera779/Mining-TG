@@ -11,6 +11,17 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sessions.models import Session
 from .forms import CustomUserCreationForm
 
+#### new imports #####
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.core.mail import send_mail
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.contrib.auth.tokens import default_token_generator
+from django.urls import reverse
+from django.http import HttpResponse
 
 @login_required
 def home(request):
@@ -147,16 +158,16 @@ def taskList(request):
     if request.method == "POST":
         task_value = request.POST.get('taskvalue')
         task_id = request.POST.get('task_id')
-        print(task_id)
         redirect_url = request.POST.get('redirect_url')
-
+        print('redirect url response:',redirect_url)
+        print(redirect_url)
         if task_value and task_id:
             counter.value += int(task_value)
             counter.save()
 
             task = TaskList.objects.get(id=task_id)
             task.assigned_users.remove(request.user)
-            return redirect(redirect_url, permanent=True)
+            return redirect(redirect_url)
             messages.success(request, f"Task '{task.Taskname}' completed successfully!")
         return redirect('/task')
 
@@ -180,6 +191,7 @@ def login_view(request):
 @login_required
 def wallet(request):
     return render(request, 'wallet.html')
+
 
 def signup(request):
     if request.method == 'POST':

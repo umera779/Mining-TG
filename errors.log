@@ -1222,3 +1222,435 @@ Traceback (most recent call last):
     raise ValueError(
 ValueError: Missing staticfiles manifest entry for 'css/login.css'
 "GET /login/ HTTP/1.1" 500 145
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 218, in signup
+    message = render_to_string('email_verification.html', {
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uid': 'MTM', 'token': 'ci5dp9-7e601ad230e1dcbf4b436fd6f79b434e'}' not found. 1 pattern(s) tried: ['activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/\\Z']
+"POST /signup/ HTTP/1.1" 500 145
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 218, in signup
+    message = render_to_string('email_verification.html', {
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uid': 'MTQ', 'token': 'ci5dqs-6cfc938e81d686400b3c5b207f0b3c56'}' not found. 1 pattern(s) tried: ['activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/\\Z']
+"POST /signup/ HTTP/1.1" 500 117324
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 224, in signup
+    user.email_user(subject, message)  # Uses `send_mail` method from `AbstractUser`
+    ^^^^^^^^^^^^^^^
+AttributeError: 'CustomUser' object has no attribute 'email_user'
+"POST /signup/ HTTP/1.1" 500 69749
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 224, in signup
+    user.email_user(subject, message)  # Uses `send_mail` method from `AbstractUser`
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/models.py", line 147, in email_user
+    send_mail(subject, message, from_email, [self.email], **kwargs)
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/backends/smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/backends/smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/smtplib.py", line 258, in __init__
+    raise SMTPConnectError(code, msg)
+smtplib.SMTPConnectError: (421, b'Service not available')
+"POST /signup/ HTTP/1.1" 500 97648
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 224, in signup
+    user.email_user(subject, message)  # Uses `send_mail` method from `AbstractUser`
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/models.py", line 147, in email_user
+    send_mail(subject, message, from_email, [self.email], **kwargs)
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/backends/smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/mail/backends/smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 828, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+"POST /signup/ HTTP/1.1" 500 115401
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 170, in taskList
+    return redirect(redirect_url, permanent=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92422
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 169, in taskList
+    return redirect(redirect_url, permanent=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92449
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 170, in taskList
+    return redirect(redirect_url, permanent=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92449
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 173, in taskList
+    return redirect(redirect_url, permanent=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92455
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 173, in taskList
+    return redirect(redirect_url, permanent=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92697
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 173, in taskList
+    return redirect(redirect_url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92625
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 173, in taskList
+    return redirect(redirect_url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92644
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 172, in taskList
+    return redirect(redirect_url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92633
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 173, in taskList
+    return redirect(redirect_url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92642
+Internal Server Error: /task
+Traceback (most recent call last):
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/Desktop/Mining/Cgame/views.py", line 174, in taskList
+    return redirect(redirect_url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/emmanuel_umera/.local/lib/python3.12/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'None' not found. 'None' is not a valid view function or pattern name.
+"POST /task HTTP/1.1" 500 92635

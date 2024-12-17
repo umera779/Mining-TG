@@ -2,6 +2,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.timezone import now
+from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 # Counter model that links to the User
@@ -138,6 +139,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+    
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """
+        Send an email to this user.
+        """
+        send_mail(subject, message, from_email, [self.email], **kwargs)
 
 ## invite logic 
 
