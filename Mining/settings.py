@@ -68,15 +68,15 @@ WSGI_APPLICATION = 'Mining.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': BASE_DIR / 'db.sqlite3',
-     }
- }
 # DATABASES = {
-#    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-# }
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': BASE_DIR / 'db.sqlite3',
+#      }
+#  }
+DATABASES = {
+   "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 AUTHENTICATION_BACKENDS = [
     'Mining.auth_backends.CustomSessionBackend',  # Path to your backend
     'django.contrib.auth.backends.ModelBackend',  # Default backend (fallback)
@@ -107,8 +107,8 @@ EMAIL_HOST = 'smtp.mail.yahoo.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = 'emmanuelumera@yahoo.com'  # Replace with your Yahoo email
-EMAIL_HOST_PASSWORD = 'zvzh douk hvuw rgkb'  # Replace with your App Password
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD') 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

@@ -190,34 +190,6 @@ def wallet(request):
     return render(request, 'wallet.html')
 
 
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-
-#             Counter.objects.create(user=user, value=2000)
-#             Mining.objects.create(user=user, speed=3000)
-
-#             boost = Boost.objects.create(
-#                 boost_name='One time boost',
-#                 boost_value=1000,
-#                 needed_coin=20,
-#                 level='Initial')
-#             boost.assigned_users.add(user)
-
-#             Level.objects.create(user=user, level=1)
-#             backend = get_backends()[0]  # Select the first backend (modify if needed)
-#             user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
-
-#             login(request, user)
-#             return redirect('home')
-
-#     else:
-#         form = CustomUserCreationForm()
-
-#     return render(request, 'signup.html', {'form': form})
-
 
 
 User = get_user_model()
@@ -228,7 +200,7 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False  # Deactivate account until email is verified
+            user.is_active = False
             user.save()
 
             Counter.objects.create(user=user, value=2000)
@@ -242,7 +214,7 @@ def signup(request):
             boost.assigned_users.add(user)
 
             Level.objects.create(user=user, level=1)
-            backend = get_backends()[0]  # Select the first backend (modify if needed)
+            backend = get_backends()[0] 
             user.backend = f"{backend.__module__}.{backend.__class__.__name__}"
 
             # Send verification email
