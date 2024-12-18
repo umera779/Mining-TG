@@ -1,0 +1,12 @@
+<!Doctype html>
+<head>
+    <title>Activation Email</title>
+</head>
+<body>
+    <p>We're so glad to have you onboard the airdrop ballon<br> You're just a step away from completing the registration process.</br>
+    Please click on the link to activate your <b>beep</b> account</p>
+    <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">
+        Activate your account
+    </a>
+</body>
+

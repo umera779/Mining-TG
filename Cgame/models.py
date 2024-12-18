@@ -79,6 +79,7 @@ class CustomUserManager(BaseUserManager):
         user = self.model(username=username, email=email)
         user.set_password(password)
         user.save(using=self._db)
+        user.is_active = False  # User will be inactive until email is verified
 
         # Create related models after user creation
         self._create_user_related_fields(user)
@@ -127,7 +128,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
     
-    is_active = models.BooleanField(default=True)
+    # is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)  # Set to True after email verification
     is_admin = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -138,13 +140,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.username
+        return self.email
     
     def email_user(self, subject, message, from_email=None, **kwargs):
         """
         Send an email to this user.
         """
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+        
 
 ## invite logic 
 
