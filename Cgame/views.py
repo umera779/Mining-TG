@@ -37,30 +37,8 @@ def home(request):
     if user_balance >= 500000000:
         level = "Elite"
 
-    players = Counter.objects.all().order_by('-value')[:3]  # Get top 10
     
-    leaderboard = []
-    
-    if len(players) > 0:
-        leaderboard.append({
-            'rank': 1,
-            'username': players[0].user.username,
-            'balance': players[0].value
-        })
-    if len(players) > 1:
-        leaderboard.append({
-            'rank': 2,
-            'username': players[1].user.username,
-            'balance': players[1].value
-        })
-    if len(players) > 2:
-        leaderboard.append({
-            'rank': 3,
-            'username': players[2].user.username,
-            'balance': players[2].value
-        })
-
-    return render(request, 'pain.html', {'counter': counter,'mining_speed': mining_speed, 'level':level, 'leaderboard': leaderboard})
+    return render(request, 'pain.html', {'counter': counter,'mining_speed': mining_speed, 'level':level})
 
 @login_required
 def get_balance(request):
